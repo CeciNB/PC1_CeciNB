@@ -6,7 +6,6 @@ public class Game {
     private Deck deck;
     private Player p1;
     private Player p2;
-    private int maxRounds;
 
     public Game(String player1, String player2) {
         this.deck = new Deck();
@@ -16,22 +15,19 @@ public class Game {
 
     public void play(){
         deck.shuffle();
-        while(!deck.getCards().isEmpty() || maxRounds < 26) {
+        while(!deck.getCards().isEmpty()) {
             p1.setCard(deck.draw());
             p2.setCard(deck.draw());
             System.out.println(p1.getCard() + " " + p2.getCard());
             if(0 < p1.getCard().compareTo(p2.getCard())){
                 p1.addScore(1);
-                maxRounds ++;
                 System.out.println(p1.getName() + " " + p1.getScore() + " " + p2.getName() + " " + p2.getScore());
             }
             else if(0 == p1.getCard().compareTo(p2.getCard())){
-                maxRounds ++;
                 System.out.println("tie");
             }
             else{
                 p2.addScore(1);
-                maxRounds ++;
                 System.out.println(p1.getName() + " " + p1.getScore() + " " + p2.getName() + " " + p2.getScore());
             }
         }

@@ -1,42 +1,33 @@
 package dk.kea.models;
 
 
-import java.util.ArrayList;
+import dk.kea.enums.RANK;
+import dk.kea.enums.SUIT;
+
 import java.util.Collections;
 import java.util.Random;
+import java.util.Stack;
 
 public class Deck {
+
     private int total;
-    private ArrayList<Card> cards;
+    private Stack<Card> cards;
     private Random random;
 
-    public Deck(int suits, int numbers) {
-        this.cards = new ArrayList<>();
-        for (int i = 1; i <= suits; i++){
-            for(int j = 1; j <= numbers; j ++){
-                cards.add(new Card(i,j));
-                this.total ++;
-            }
-        }
-        this.random = new Random();
-    }
-
     public Deck() {
-        this.cards = new ArrayList<>();
-        for (int i = 1; i <= 4; i++){
-            for(int j = 1; j <= 13; j ++){
-                cards.add(new Card(i,j));
-                this.total ++;
+        this.cards = new Stack<>();
+        for(SUIT suit : SUIT.values())
+            for(RANK rank : RANK.values()){
+                cards.push(new Card(suit,rank));
             }
-        }
-        this.random = new Random();
+
     }
 
-    public ArrayList<Card> getCards() {
+    public Stack<Card> getCards() {
         return cards;
     }
 
-    public void setCards(ArrayList<Card> cards) {
+    public void setCards(Stack<Card> cards) {
         this.cards = cards;
     }
 
@@ -55,9 +46,7 @@ public class Deck {
     public Card draw(){
         Card result = null;
         if(!this.cards.isEmpty()) {
-            int index = random.nextInt(this.cards.size());
-            result = this.cards.get(index);
-            this.cards.remove(index);
+            result = cards.pop();
         }
         else{
             System.out.println("EMPTY");
