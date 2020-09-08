@@ -6,5 +6,4 @@ public enum SUIT {
     HEART,
     DIAMOND,
     CLUB,
-    OTHER
 }

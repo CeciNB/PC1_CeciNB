@@ -23,13 +23,7 @@ public class Card implements Comparable<Card>{
 
     @Override
     public String toString() {
-        return  "--------- \n" +
-                "|" + number + "      |\n" +
-                "|" + suit + "      |\n" +
-                "|       |\n" +
-                "|      " + suit + "|\n" +
-                "|      " + number + "|\n" +
-                "---------\n" ;
+        return this.suit + " " + this.number;
     }
 
     @Override

@@ -18,7 +18,9 @@ public class Game {
         while(!deck.getCards().isEmpty()) {
             p1.setCard(deck.draw());
             p2.setCard(deck.draw());
-            System.out.println(p1.getCard() + " " + p2.getCard());
+            System.out.println(p1.getName() + " " + p1.getCard());
+            System.out.println(p2.getName() + " " + p2.getCard());
+
             if(0 < p1.getCard().compareTo(p2.getCard())){
                 p1.addScore(1);
                 System.out.println(p1.getName() + " " + p1.getScore() + " " + p2.getName() + " " + p2.getScore());

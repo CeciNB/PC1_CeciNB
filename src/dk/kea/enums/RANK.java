@@ -1,17 +1,17 @@
 package dk.kea.enums;
 
 public enum RANK {
-    KIN,
-    QUE,
-    JAC,
+    KING,
+    QUEEN,
+    JACK,
     TEN,
-    NIN,
-    EIG,
-    SEV,
+    NINE,
+    EIGHT,
+    SEVEN,
     SIX,
-    FIV,
-    FOU,
-    THR,
+    FIVE,
+    FOUR,
+    THREE,
     TWO,
     ACE
 }
