@@ -16,22 +16,21 @@ public class Game {
     public void play(){
         deck.shuffle();
         while(!deck.getCards().isEmpty()) {
+
             p1.setCard(deck.draw());
             p2.setCard(deck.draw());
-            System.out.println(p1.getName() + " " + p1.getCard());
-            System.out.println(p2.getName() + " " + p2.getCard());
+
+            System.out.println(p1.getName() + ": " + p1.getCard());
+            System.out.println(p2.getName() + ": " + p2.getCard());
 
             if(0 < p1.getCard().compareTo(p2.getCard())){
-                p1.addScore(1);
-                System.out.println(p1.getName() + " " + p1.getScore() + " " + p2.getName() + " " + p2.getScore());
-            }
-            else if(0 == p1.getCard().compareTo(p2.getCard())){
-                System.out.println("tie");
+                p1.addScore(p1.getCard().compareTo(p2.getCard()));
             }
             else{
-                p2.addScore(1);
-                System.out.println(p1.getName() + " " + p1.getScore() + " " + p2.getName() + " " + p2.getScore());
+                p2.addScore(p2.getCard().compareTo(p1.getCard()));
             }
+            System.out.println("Score: " + p1.getName() + ": " + p1.getScore() + " " + p2.getName() + ": " + p2.getScore() + "\n");
+            assert (0 == p1.getCard().compareTo(p2.getCard())) : "IT'S A TIE - MISTAKE";
         }
     }
 
